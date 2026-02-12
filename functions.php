@@ -105,6 +105,24 @@ function cb_listing_starter_register_pattern_categories() {
 add_action( 'init', 'cb_listing_starter_register_pattern_categories' );
 
 /**
+ * Show admin notice when CB Listing Anything plugin is not active.
+ */
+add_action( 'admin_notices', function () {
+    if ( post_type_exists( 'listing' ) ) {
+        return;
+    }
+
+    ?>
+    <div class="notice notice-warning is-dismissible">
+        <p>
+            <strong><?php esc_html_e( 'CB Listing Starter:', 'cb-listing-starter' ); ?></strong>
+            <?php esc_html_e( 'This theme requires the CB Listing Anything plugin to enable listing features. Please install and activate it to use listing templates, archives, and taxonomy pages.', 'cb-listing-starter' ); ?>
+        </p>
+    </div>
+    <?php
+});
+
+/**
  * Conditionally register listing CPT templates when the 'listing' post type exists.
  *
  * WordPress block theme template hierarchy automatically picks up:
@@ -127,13 +145,13 @@ add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
 
     $data['customTemplates'][] = array(
         'name'      => 'single-listing',
-        'title'     => 'Single Listing',
+        'title'     => 'CB Listing Single',
         'postTypes' => array( 'listing' ),
     );
 
     $data['customTemplates'][] = array(
         'name'      => 'archive-listing',
-        'title'     => 'Listing Archive',
+        'title'     => 'CB Listing Archive',
         'postTypes' => array( 'listing' ),
     );
 
@@ -155,3 +173,26 @@ add_action( 'init', function () {
         )
     );
 }, 20 ); // Priority 20 so it runs after CPTs are registered at default priority 10.
+
+/**
+ * Force listing taxonomy archives to use the archive-listing template.
+ *
+ * This ensures listing_category and listing_tag pages use the same
+ * template as the listing post type archive, keeping a consistent layout.
+ */
+add_filter( 'taxonomy_template_hierarchy', function ( $templates ) {
+    $queried = get_queried_object();
+
+    if ( ! $queried || ! isset( $queried->taxonomy ) ) {
+        return $templates;
+    }
+
+    $listing_taxonomies = array( 'listing_category', 'listing_tag' );
+
+    if ( in_array( $queried->taxonomy, $listing_taxonomies, true ) ) {
+        // Prepend archive-listing so it takes priority.
+        array_unshift( $templates, 'archive-listing' );
+    }
+
+    return $templates;
+});
