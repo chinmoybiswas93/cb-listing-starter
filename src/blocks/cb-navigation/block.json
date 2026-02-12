@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cb-listing-starter/cb-navigation",
+	"version": "1.0.0",
+	"title": "CB Navigation",
+	"category": "theme",
+	"icon": "menu",
+	"description": "A navigation block with menu selection and styling options.",
+	"textdomain": "cb-listing-starter",
+	"attributes": {
+		"menuId": {
+			"type": "number",
+			"default": 0
+		},
+		"textColor": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customBackgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"fontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"customFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"itemSpacing": {
+			"type": "string",
+			"default": "20px"
+		},
+		"orientation": {
+			"type": "string",
+			"default": "horizontal",
+			"enum": [ "horizontal", "vertical" ]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalTextTransform": true
+		},
+		"color": {
+			"text": true,
+			"background": true,
+			"link": true
+		}
+	},
+	"editorScript": "file:../../../build/blocks/cb-navigation/index.js",
+	"editorStyle": "file:../../../build/blocks/cb-navigation/index.css",
+	"style": "file:../../../build/blocks/cb-navigation/style-index.css",
+	"render": "file:render.php"
+}

@@ -1,0 +1,65 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/cb-navigation/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * CB Navigation — Front-end & Editor shared styles.
+ */
+nav.wp-block-cb-listing-starter-cb-navigation {
+  display: block;
+}
+.cb-navigation {
+  /* List reset. */
+}
+.cb-navigation__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.cb-navigation {
+  /* Horizontal (default). */
+}
+.cb-navigation--horizontal .cb-navigation__list {
+  flex-direction: row;
+  align-items: center;
+}
+.cb-navigation {
+  /* Vertical. */
+}
+.cb-navigation--vertical .cb-navigation__list {
+  flex-direction: column;
+}
+.cb-navigation {
+  /* Individual items. */
+}
+.cb-navigation__item {
+  margin: 0;
+  padding: 0;
+}
+.cb-navigation__item a {
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.cb-navigation__item a:hover, .cb-navigation__item a:focus {
+  opacity: 0.75;
+}
+.cb-navigation {
+  /* Classic menu items. */
+}
+.cb-navigation .menu-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cb-navigation .menu-item a {
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.cb-navigation .menu-item a:hover,
+.cb-navigation .menu-item a:focus {
+  opacity: 0.75;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -21,8 +21,8 @@
 
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
     <div class="wp-block-buttons">
-        <!-- wp:button {"style":{"border":{"radius":"var:custom|border|radius"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}}} -->
-        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:var(--wp--custom--border--radius);padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--50)"><?php echo esc_html_x( 'Start Now →', 'CTA button', 'cb-listing-starter' ); ?></a></div>
+        <!-- wp:button {"style":{"border":{"radius":"var:custom|border|radius"}}} -->
+        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:var(--wp--custom--border--radius)"><?php echo esc_html_x( 'Start Now →', 'CTA button', 'cb-listing-starter' ); ?></a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->

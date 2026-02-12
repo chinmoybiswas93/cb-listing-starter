@@ -26,11 +26,11 @@
 
             <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
             <div class="wp-block-buttons">
-                <!-- wp:button {"backgroundColor":"background","textColor":"primary","style":{"border":{"radius":"var:custom|border|radius"},"typography":{"fontWeight":"600"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}}} -->
-                <div class="wp-block-button"><a class="wp-block-button__link has-primary-color has-background-background-color has-text-color has-background wp-element-button" style="border-radius:var(--wp--custom--border--radius);padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--50);font-weight:600"><?php echo esc_html_x( 'Get Started', 'Hero button', 'cb-listing-starter' ); ?></a></div>
+                <!-- wp:button {"backgroundColor":"background","textColor":"primary","style":{"border":{"radius":"var:custom|border|radius"}}} -->
+                <div class="wp-block-button"><a class="wp-block-button__link has-primary-color has-background-background-color has-text-color has-background wp-element-button" style="border-radius:var(--wp--custom--border--radius)"><?php echo esc_html_x( 'Get Started', 'Hero button', 'cb-listing-starter' ); ?></a></div>
                 <!-- /wp:button -->
-                <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"var:custom|border|radius"},"typography":{"fontWeight":"600"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"background"} -->
-                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-background-color has-text-color has-link-color wp-element-button" style="border-radius:var(--wp--custom--border--radius);padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--50);font-weight:600"><?php echo esc_html_x( 'Learn More', 'Hero button', 'cb-listing-starter' ); ?></a></div>
+                <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"var:custom|border|radius"},"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"background"} -->
+                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-background-color has-text-color has-link-color wp-element-button" style="border-radius:var(--wp--custom--border--radius)"><?php echo esc_html_x( 'Learn More', 'Hero button', 'cb-listing-starter' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->

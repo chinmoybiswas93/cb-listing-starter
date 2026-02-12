@@ -41,6 +41,14 @@ function cb_listing_starter_setup() {
     // Add support for post thumbnails.
     add_theme_support( 'post-thumbnails' );
 
+    // Register navigation menus.
+    register_nav_menus(
+        array(
+            'primary'  => __( 'Primary Menu', 'cb-listing-starter' ),
+            'footer'   => __( 'Footer Menu', 'cb-listing-starter' ),
+        )
+    );
+
     // Add custom image sizes.
     add_image_size( 'cb-card-thumbnail', 600, 400, true );
     add_image_size( 'cb-hero-image', 1920, 800, true );
@@ -69,6 +77,18 @@ function cb_listing_starter_enqueue_styles() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'cb_listing_starter_enqueue_styles' );
+
+/**
+ * Register custom blocks bundled with the theme.
+ */
+function cb_listing_starter_register_blocks() {
+    $block_json = CB_LISTING_STARTER_DIR . '/src/blocks/cb-navigation/block.json';
+
+    if ( file_exists( $block_json ) ) {
+        register_block_type( $block_json );
+    }
+}
+add_action( 'init', 'cb_listing_starter_register_blocks' );
 
 /**
  * Register block patterns category.

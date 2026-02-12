@@ -1,0 +1,41 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/cb-navigation/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * CB Navigation — Editor-only styles.
+ */
+.wp-block-cb-listing-starter-cb-navigation {
+  min-height: 40px;
+}
+.wp-block-cb-listing-starter-cb-navigation .components-placeholder {
+  min-height: 80px;
+}
+.wp-block-cb-listing-starter-cb-navigation {
+  /* ServerSideRender wraps output in an extra div — make it transparent to layout. */
+}
+.wp-block-cb-listing-starter-cb-navigation > .wp-block-cb-listing-starter-cb-navigation__server-side-render,
+.wp-block-cb-listing-starter-cb-navigation > div:not(.components-placeholder) {
+  display: contents;
+}
+.wp-block-cb-listing-starter-cb-navigation {
+  /* Ensure the nav rendered by SSR aligns items vertically centered in the editor. */
+}
+.wp-block-cb-listing-starter-cb-navigation nav.cb-navigation {
+  display: flex;
+  align-items: center;
+}
+.wp-block-cb-listing-starter-cb-navigation nav.cb-navigation .cb-navigation__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.wp-block-cb-listing-starter-cb-navigation nav.cb-navigation--vertical .cb-navigation__list {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/*# sourceMappingURL=index.css.map*/

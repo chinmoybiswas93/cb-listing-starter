@@ -1,0 +1,62 @@
+/**
+ * CB Navigation — Front-end & Editor shared styles.
+ */
+
+nav.wp-block-cb-listing-starter-cb-navigation {
+	display: block;
+}
+
+.cb-navigation {
+	/* List reset. */
+	&__list {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		flex-wrap: wrap;
+	}
+
+	/* Horizontal (default). */
+	&--horizontal &__list {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	/* Vertical. */
+	&--vertical &__list {
+		flex-direction: column;
+	}
+
+	/* Individual items. */
+	&__item {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item a {
+		text-decoration: none;
+		transition: color 0.2s ease, opacity 0.2s ease;
+	}
+
+	&__item a:hover,
+	&__item a:focus {
+		opacity: 0.75;
+	}
+
+	/* Classic menu items. */
+	.menu-item {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.menu-item a {
+		text-decoration: none;
+		transition: color 0.2s ease, opacity 0.2s ease;
+	}
+
+	.menu-item a:hover,
+	.menu-item a:focus {
+		opacity: 0.75;
+	}
+}

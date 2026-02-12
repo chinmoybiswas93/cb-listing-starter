@@ -1,0 +1,37 @@
+/**
+ * CB Navigation — Editor-only styles.
+ */
+
+.wp-block-cb-listing-starter-cb-navigation {
+	min-height: 40px;
+
+	.components-placeholder {
+		min-height: 80px;
+	}
+
+	/* ServerSideRender wraps output in an extra div — make it transparent to layout. */
+	> .wp-block-cb-listing-starter-cb-navigation__server-side-render,
+	> div:not(.components-placeholder) {
+		display: contents;
+	}
+
+	/* Ensure the nav rendered by SSR aligns items vertically centered in the editor. */
+	nav.cb-navigation {
+		display: flex;
+		align-items: center;
+	}
+
+	nav.cb-navigation .cb-navigation__list {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		flex-wrap: wrap;
+	}
+
+	nav.cb-navigation--vertical .cb-navigation__list {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
