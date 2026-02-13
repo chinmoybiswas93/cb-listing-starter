@@ -65,14 +65,47 @@
                     "name": "System Sans"
                 },
                 {
-                    "fontFamily": "'Georgia', 'Times New Roman', serif",
-                    "slug": "system-serif",
-                    "name": "System Serif"
-                },
-                {
-                    "fontFamily": "'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace",
-                    "slug": "system-mono",
-                    "name": "System Mono"
+                    "fontFamily": "'Poppins', sans-serif",
+                    "slug": "poppins",
+                    "name": "Poppins",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "300",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-300.woff2"]
+                        },
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "400",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-regular.woff2"]
+                        },
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "500",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-500.woff2"]
+                        },
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "600",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-600.woff2"]
+                        },
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "700",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-700.woff2"]
+                        },
+                        {
+                            "fontFamily": "Poppins",
+                            "fontWeight": "700",
+                            "fontStyle": "italic",
+                            "src": ["file:./assets/fonts/poppins-v24-latin-700italic.woff2"]
+                        }
+                    ]
                 }
             ],
             "defaultFontSizes": false,
@@ -171,7 +204,7 @@
                 "large": 1.8
             },
             "border": {
-                "radius": "0.5rem"
+                "radius": "5px"
             }
         }
     },
@@ -197,6 +230,7 @@
         "elements": {
             "heading": {
                 "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--system-sans)",
                     "fontWeight": "700",
                     "lineHeight": "1.2"
                 },
