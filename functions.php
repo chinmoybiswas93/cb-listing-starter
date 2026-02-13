@@ -41,14 +41,6 @@ function cb_listing_starter_setup() {
     // Add support for post thumbnails.
     add_theme_support( 'post-thumbnails' );
 
-    // Register navigation menus.
-    register_nav_menus(
-        array(
-            'primary'  => __( 'Primary Menu', 'cb-listing-starter' ),
-            'footer'   => __( 'Footer Menu', 'cb-listing-starter' ),
-        )
-    );
-
     // Add custom image sizes.
     add_image_size( 'cb-card-thumbnail', 600, 400, true );
     add_image_size( 'cb-hero-image', 1920, 800, true );
