@@ -5,23 +5,28 @@
  * Keep this file minimal — prefer using theme.json for styling.
  */
 
-/* Header row: reorder so logo → Add Listing button → hamburger (flex order) */
-/* Live DOM: flex row has 3 direct children (no inner group): site-logo, nav, buttons. */
-header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-site-logo {
-    order: 1;
-}
-header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-buttons {
-    order: 2;
-}
-header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-navigation {
-    order: 3;
-}
-
-/* Mobile: logo far left, button + hamburger grouped far right; spacing between button and hamburger */
+/* Header row – mobile only: logo far left, Add Listing + hamburger far right */
 @media (max-width: 781px) {
+    /* Live DOM: flex row has 3 direct children: site-logo, nav, buttons. */
+    header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-site-logo {
+        order: 1;
+    }
     header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-buttons {
-        margin-left: auto;
-        margin-right: 0.75rem;
+        order: 2;
+        margin-left: auto;   /* push button + hamburger to the right */
+        margin-right: 0.5rem; /* space between button and hamburger */
+    }
+    /* Header Add Listing button: target the link (wp-block-button__link) */
+    header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-buttons .wp-block-button__link {
+        border: 2px solid var(--wp--preset--color--foreground, #1a1a2e);
+        padding: 0.5rem 0.75rem;
+        border-radius: 5px;
+    }
+    header .wp-block-group.is-content-justification-space-between.is-layout-flex > .wp-block-navigation {
+        order: 3;
+        border: 2px solid var(--wp--preset--color--foreground, #1a1a2e);
+        padding: 9px;
+        border-radius: 5px;
     }
 }
 
@@ -75,6 +80,19 @@ img {
    Desktop navigation dropdown – align with parent, lower, radius, shadow, hover
    ========================================================================== */
 @media (min-width: 782px) {
+    /* Desktop menu: hover color + cursor pointer for menu and submenu */
+    .wp-block-navigation .wp-block-navigation-item .wp-block-navigation-item__content {
+        cursor: pointer;
+        transition: color 0.15s ease, background-color 0.15s ease;
+    }
+    .wp-block-navigation .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover,
+    .wp-block-navigation .wp-block-page-list > .wp-block-navigation-item > .wp-block-navigation-item__content:hover {
+        color: var(--wp--preset--color--primary, currentColor);
+    }
+    .wp-block-navigation .has-child .wp-block-navigation__submenu-container .wp-block-navigation-item .wp-block-navigation-item__content {
+        cursor: pointer;
+    }
+
     .wp-block-navigation .has-child .wp-block-navigation__submenu-container {
         left: 0;
         right: auto;
@@ -330,15 +348,13 @@ img {
 /* Close button */
 /* Hamburger (open menu) button: slightly larger tap area */
 .wp-block-navigation .wp-block-navigation__responsive-container-open {
-    padding: 16px;
+    padding: 0.5rem;
     box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 1);
     background-color: transparent;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M5 5v1.5h14V5H5z'/%3E%3Cpath d='M5 12.8h14v-1.5H5v1.5z'/%3E%3Cpath d='M5 19h14v-1.5H5V19z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px 24px;
-    border-radius: 5px;
 }
 
 .wp-block-navigation .wp-block-navigation__responsive-container-open svg {
