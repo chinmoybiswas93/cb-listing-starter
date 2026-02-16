@@ -190,7 +190,8 @@
                     "size": "6rem",
                     "name": "8"
                 }
-            ]
+            ],
+            "blockGap": "10px"
         },
         "layout": {
             "contentSize": "800px",

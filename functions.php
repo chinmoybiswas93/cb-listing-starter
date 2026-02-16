@@ -48,7 +48,7 @@ function cb_listing_starter_setup() {
 add_action( 'after_setup_theme', 'cb_listing_starter_setup' );
 
 /**
- * Enqueue theme styles.
+ * Enqueue theme styles and scripts.
  */
 function cb_listing_starter_enqueue_styles() {
     wp_enqueue_style(
@@ -58,17 +58,33 @@ function cb_listing_starter_enqueue_styles() {
         CB_LISTING_STARTER_VERSION
     );
 
-    // Enqueue custom theme styles.
+    // Enqueue custom theme styles (after block library so overrides apply).
     if ( file_exists( CB_LISTING_STARTER_DIR . '/assets/css/theme.css' ) ) {
         wp_enqueue_style(
             'cb-listing-starter-custom',
             CB_LISTING_STARTER_URI . '/assets/css/theme.css',
-            array( 'cb-listing-starter-style' ),
+            array( 'cb-listing-starter-style', 'wp-block-library' ),
             CB_LISTING_STARTER_VERSION
         );
     }
 }
 add_action( 'wp_enqueue_scripts', 'cb_listing_starter_enqueue_styles' );
+
+/**
+ * Enqueue navigation mobile script (parent row opens submenu).
+ */
+function cb_listing_starter_enqueue_scripts() {
+    if ( file_exists( CB_LISTING_STARTER_DIR . '/assets/js/navigation-mobile.js' ) ) {
+        wp_enqueue_script(
+            'cb-listing-starter-navigation-mobile',
+            CB_LISTING_STARTER_URI . '/assets/js/navigation-mobile.js',
+            array(),
+            CB_LISTING_STARTER_VERSION,
+            true
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'cb_listing_starter_enqueue_scripts' );
 
 /**
  * Register custom blocks bundled with the theme.
@@ -120,7 +136,7 @@ add_action( 'init', 'cb_listing_starter_register_pattern_categories' );
  * Show admin notice when CB Listing Anything plugin is not active.
  */
 add_action( 'admin_notices', function () {
-    if ( post_type_exists( 'listing' ) ) {
+    if ( post_type_exists( 'cb_listing' ) ) {
         return;
     }
 
@@ -135,17 +151,17 @@ add_action( 'admin_notices', function () {
 });
 
 /**
- * Conditionally register listing CPT templates when the 'listing' post type exists.
+ * Conditionally register listing CPT templates when the 'cb_listing' post type exists.
  *
  * WordPress block theme template hierarchy automatically picks up:
- *   templates/single-listing.html  → single listing view
- *   templates/archive-listing.html → listing archive view
+ *   templates/single-cb_listing.html  → single listing view
+ *   templates/archive-cb_listing.html → listing archive view
  *
  * This filter makes them visible in the Site Editor's template list and
  * registers a pattern category for listing-specific patterns.
  */
 add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
-    if ( ! post_type_exists( 'listing' ) ) {
+    if ( ! post_type_exists( 'cb_listing' ) ) {
         return $theme_json;
     }
 
@@ -156,15 +172,15 @@ add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
     }
 
     $data['customTemplates'][] = array(
-        'name'      => 'single-listing',
+        'name'      => 'single-cb_listing',
         'title'     => 'CB Listing Single',
-        'postTypes' => array( 'listing' ),
+        'postTypes' => array( 'cb_listing' ),
     );
 
     $data['customTemplates'][] = array(
-        'name'      => 'archive-listing',
+        'name'      => 'archive-cb_listing',
         'title'     => 'CB Listing Archive',
-        'postTypes' => array( 'listing' ),
+        'postTypes' => array( 'cb_listing' ),
     );
 
     return new WP_Theme_JSON_Data( $data );
@@ -174,7 +190,7 @@ add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
  * Register listing-related pattern category when the listing CPT exists.
  */
 add_action( 'init', function () {
-    if ( ! post_type_exists( 'listing' ) ) {
+    if ( ! post_type_exists( 'cb_listing' ) ) {
         return;
     }
 
@@ -187,9 +203,9 @@ add_action( 'init', function () {
 }, 20 ); // Priority 20 so it runs after CPTs are registered at default priority 10.
 
 /**
- * Force listing taxonomy archives to use the archive-listing template.
+ * Force listing taxonomy archives to use the archive-cb_listing template.
  *
- * This ensures listing_category and listing_tag pages use the same
+ * This ensures cb_listing_category and cb_listing_tag pages use the same
  * template as the listing post type archive, keeping a consistent layout.
  */
 add_filter( 'taxonomy_template_hierarchy', function ( $templates ) {
@@ -199,11 +215,11 @@ add_filter( 'taxonomy_template_hierarchy', function ( $templates ) {
         return $templates;
     }
 
-    $listing_taxonomies = array( 'listing_category', 'listing_tag' );
+    $listing_taxonomies = array( 'cb_listing_category', 'cb_listing_tag' );
 
     if ( in_array( $queried->taxonomy, $listing_taxonomies, true ) ) {
-        // Prepend archive-listing so it takes priority.
-        array_unshift( $templates, 'archive-listing' );
+        // Prepend archive-cb_listing so it takes priority.
+        array_unshift( $templates, 'archive-cb_listing' );
     }
 
     return $templates;
