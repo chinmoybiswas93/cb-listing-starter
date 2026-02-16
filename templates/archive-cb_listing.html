@@ -1,13 +1,38 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
-<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60)">
 
-    <!-- wp:query-title {"type":"archive","textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} /-->
+    <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)">
 
-    <!-- wp:term-description {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"foreground-light","fontSize":"small"} /-->
+        <!-- wp:group {"style":{"border":{"radius":"10px"}}} -->
+        <div class="wp-block-group">
 
-    <!-- wp:cb-listing-anything/listings-card {"useCurrentQuery":true,"postsPerPage":12,"columns":3,"showExcerpt":true,"showPrice":true,"showLocation":true,"align":"wide"} /-->
+            <!-- wp:cover {"overlayColor":"surface","isUserOverlayColor":true,"minHeight":200,"align":"wide"} -->
+            <div class="wp-block-cover alignwide" style="min-height:200px">
+                <span aria-hidden="true" class="wp-block-cover__background has-surface-background-color has-background-dim-100 has-background-dim"></span>
+                <div class="wp-block-cover__inner-container">
+                    <!-- wp:query-title {"type":"archive","textAlign":"center","textColor":"foreground","style":{"spacing":{"margin":{"bottom":"10px"}}}} /-->
+                    
+                    <!-- wp:cb-listing-anything/listing-breadcrumb {"textAlign":"center"} /-->
+                </div>
+            </div>
+            <!-- /wp:cover -->
+
+        </div>
+        <!-- /wp:group -->
+
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group -->
+    <div class="wp-block-group">
+
+        <!-- wp:cb-listing-anything/listings-archive {"align":"wide","postsPerPage":12,"columns":3,"showFilterCategory":true,"showFilterTag":true,"showFilterPrice":true,"orderBy":"date","showCategories":true,"showOpenStatus":true,"showPrice":true,"showTags":true,"showAddress":true,"showCallButton":true} /-->
+
+    </div>
+    <!-- /wp:group -->
 
 </main>
 <!-- /wp:group -->

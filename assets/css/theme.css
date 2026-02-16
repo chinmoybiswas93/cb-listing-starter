@@ -50,6 +50,18 @@ img {
         padding-top: 0.4rem;
         padding-bottom: 0.4rem;
     }
+    /* Archive cover block: reduce min-height on mobile */
+    .wp-block-cover.alignwide {
+        min-height: 150px !important;
+    }
+}
+
+/* Archive listing template: cover block border radius */
+body.archive .wp-block-cover.alignwide,
+body.tax-cb_listing_category .wp-block-cover.alignwide,
+body.tax-cb_listing_tag .wp-block-cover.alignwide {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* Skip link for accessibility */
